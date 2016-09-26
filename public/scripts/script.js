@@ -19,7 +19,7 @@ myApp.controller( 'whereMyPeeps', [ '$scope', '$http', function( $scope, $http )
       method: 'GET',
       url: '/getRecords',
     }).then( function( response ){
-      $scope.allTheRecords = response;
+      $scope.allTheRecords = response.data;
       console.log( $scope.allTheRecords );
     }, function myError( response ){
       console.log( response.statusText );
