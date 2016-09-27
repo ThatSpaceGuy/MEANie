@@ -20,8 +20,10 @@ app.get( '/getRecords', function( req, res ){
     res.send( data );
   });
 });
-app.listen( 8080, 'localhost', function( req, res ){
-  console.log( 'listening on 8080' );
+var port = '4242';
+
+app.listen( port, 'localhost', function( req, res ){
+  console.log( 'listening on: '+port );
 });
 app.post( '/addRecords', function( req, res ){
   console.log( 'req.body.name: ' + req.body.name );
