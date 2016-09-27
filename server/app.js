@@ -23,7 +23,7 @@ app.get( '/getRecords', function( req, res ){
 app.listen( 8080, 'localhost', function( req, res ){
   console.log( 'listening on 8080' );
 });
-app.post( '/testPost', function( req, res ){
+app.post( '/addRecords', function( req, res ){
   console.log( 'req.body.name: ' + req.body.name );
   // retrieved the req.body
   // putting it into an object to be saved in the db
@@ -36,3 +36,12 @@ app.post( '/testPost', function( req, res ){
   newRecord.save();
 });
 app.use( express.static( 'public' ) );
+
+app.delete( '/deleteRecords', function( req, res ){
+  console.log( 'idToDelete: ' + req.body.id );
+  // retrieved the req.body
+  ourModel.findByIdAndRemove({"_id":req.body.id}, function(){
+    console.log("Record "+ req.body.id +" has been deleted.");
+    res.send(200);
+  });// end callback
+});

@@ -18,6 +18,7 @@
       <div ng-repeat="peep in allTheRecords">
         <text>Name: {{peep.name}}</text>
         <text>Location: {{peep.location}}</text>
+        <button type="button" ng-click="deleteRecord($index)">Delete</button>
       </div>
     </div>
   </body>
